@@ -11,7 +11,6 @@ import static org.openqa.selenium.support.PageFactory.initElements;
 
 public class MailPage {
 
-    private final String secondName = "Aflyatunov";
     private RemoteWebDriver driver;
 
     @FindBy(xpath = "//div[@role=\"tabpanel\"]/div[3]//tbody")
@@ -28,15 +27,13 @@ public class MailPage {
     private WebElement messageBodyFieild;
     @FindBy(xpath = "//tr/td/div/div[2]/div[@role=\"button\"][1]")
     private WebElement sendMessageButton;
-    @FindBy(xpath = "//div[@style]//div[@aria-live=\"assertive\"]//div[2]")
-    private WebElement sendingCompleteText;
 
     public MailPage(RemoteWebDriver driver) {
         this.driver = driver;
         initElements(driver, this);
     }
 
-    public void sendLetterWithLettersCount(String emeil, String subject) {
+    public void sendLetterWithLettersCount(String emeil, String subject, String secondName) {
         int lettersCount = lettersTable.findElements(By.cssSelector("tr")).size();
         writeLetterButton.click();
         WebDriverWait wait = new WebDriverWait(driver, 60);

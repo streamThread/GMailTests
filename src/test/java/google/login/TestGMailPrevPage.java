@@ -26,7 +26,7 @@ public class TestGMailPrevPage {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
         capabilities.setVersion("80.0");
-        capabilities.setCapability("videoName", String.format("%s prev page tests", time));
+        capabilities.setCapability("videoName", String.format("%s_prev_page_tests", time));
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         try {

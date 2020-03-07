@@ -19,10 +19,6 @@ public class PasswordPage {
         initElements(driver, this);
     }
 
-    public WebElement getInputField() {
-        return inputField;
-    }
-
     private PasswordPage inputPassword(String userPassword) {
         inputField.sendKeys(userPassword);
         return this;

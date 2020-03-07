@@ -26,7 +26,7 @@ public class TestPasswordPage {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
         capabilities.setVersion("80.0");
-        capabilities.setCapability("videoName", String.format("%s password page tests", time));
+        capabilities.setCapability("videoName", String.format("%s_password_page_tests", time));
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         try {
@@ -57,7 +57,8 @@ public class TestPasswordPage {
         new GMailPrevPage(driver).clickSignInButton();
         new LoginPage(driver).sendLogIn(googleLogin);
         new PasswordPage(driver).sendPassword("test");
-        Assert.assertEquals("Неверный пароль. Повторите попытку или нажмите на ссылку \"Забыли пароль?\", чтобы сбросить его.",
+        Assert.assertEquals("Неверный пароль. Повторите попытку или нажмите на ссылку " +
+                        "\"Забыли пароль?\", чтобы сбросить его.",
                 driver.findElementByXPath("//div[2]/div[2]/span[@jsslot]").getText());
     }
 

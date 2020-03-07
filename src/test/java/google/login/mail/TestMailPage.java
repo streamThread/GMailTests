@@ -36,7 +36,7 @@ public class TestMailPage {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
         capabilities.setVersion("80.0");
-        capabilities.setCapability("videoName", String.format("%s mail page tests", time));
+        capabilities.setCapability("videoName", String.format("%s_mail_page_tests", time));
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         try {
@@ -57,7 +57,7 @@ public class TestMailPage {
     @Test
     @DisplayName("Send letter test")
     public void testLetterWithLettersCount() {
-        new MailPage(driver).sendLetterWithLettersCount("oleg_in@bk.ru", "Тестовое задание");
+        new MailPage(driver).sendLetterWithLettersCount("oleg_in@bk.ru", "Тестовое задание", "Афлятунов");
         wait = new WebDriverWait(driver, 30);
         WebElement webEl = wait.until(ExpectedConditions
                 .visibilityOfElementLocated(By.xpath(MESSAGE_SEND_LOCATOR)));

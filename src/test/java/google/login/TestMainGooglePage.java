@@ -25,7 +25,7 @@ public class TestMainGooglePage {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
         capabilities.setVersion("80.0");
-        capabilities.setCapability("videoName", String.format("%s main page tests", time));
+        capabilities.setCapability("videoName", String.format("%s_main_page_tests", time));
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         try {

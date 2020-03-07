@@ -28,7 +28,7 @@ public class TestLoginPage {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
         capabilities.setVersion("80.0");
-        capabilities.setCapability("videoName", String.format("%s login page tests", time));
+        capabilities.setCapability("videoName", String.format("%s_login_page_tests", time));
         capabilities.setCapability("name", LocalDate.now().toString());
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
@@ -57,7 +57,8 @@ public class TestLoginPage {
     @DisplayName("Wrong login input test")
     public void testSendWrongLogin() {
         new LoginPage(driver).sendLogIn("test");
-        Assert.assertEquals("Не удалось найти аккаунт Google", driver.findElementByXPath("//span[@jsslot]//div[2]//div[2]//div").getText());
+        Assert.assertEquals("Не удалось найти аккаунт Google",
+                driver.findElementByXPath("//span[@jsslot]//div[2]//div[2]//div").getText());
     }
 
 
