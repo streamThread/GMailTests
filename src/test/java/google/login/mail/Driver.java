@@ -18,8 +18,8 @@ public class Driver {
         driver = createDriver();
     }
 
-    public static synchronized WebDriver getInstance(){
-        if (driver == null){
+    public static synchronized WebDriver getInstance() {
+        if (driver == null) {
             new Driver();
         }
         return driver;
@@ -34,7 +34,7 @@ public class Driver {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         try {
-            driver = new RemoteWebDriver(URI.create("http://localhost:4444/wd/hub").toURL(), capabilities);
+            RemoteWebDriver driver = new RemoteWebDriver(URI.create("http://localhost:4444/wd/hub").toURL(), capabilities);
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             driver.manage().window().maximize();
         } catch (MalformedURLException e) {
