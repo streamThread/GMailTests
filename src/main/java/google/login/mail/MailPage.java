@@ -46,11 +46,7 @@ public class MailPage {
         recepientEmailInputField.click();
         recepientInputField.sendKeys(emeil);
         sendMessageButton.click();
-        WebElement webElement = wait.until(ExpectedConditions
-                .visibilityOf(messageWasSendElement));
-        if (webElement != null) {
-            return true;
-        }
-        return false;
+        WebElement webElement = wait.until(ExpectedConditions.visibilityOf(messageWasSendElement));
+        return webElement != null;
     }
 }

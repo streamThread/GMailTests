@@ -15,7 +15,7 @@ public class MyProperties {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        this.properties = properties;
+        MyProperties.properties = properties;
     }
 
     public static synchronized Properties getInstance(){

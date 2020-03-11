@@ -15,7 +15,7 @@ import java.util.Properties;
 
 public class TestMailPage {
 
-    WebDriver driver = Driver.getInstance();
+    WebDriver driver = Driver.createDriver();
     Properties properties = MyProperties.getInstance();
 
     @Before

@@ -25,5 +25,4 @@ public class LoginPage {
         nextButton.click();
         return new PasswordPage(driver);
     }
-
 }
