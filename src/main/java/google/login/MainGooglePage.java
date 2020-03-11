@@ -1,19 +1,19 @@
 package google.login;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 
 import static org.openqa.selenium.support.PageFactory.initElements;
 
 public class MainGooglePage {
 
-    private RemoteWebDriver driver;
+    private WebDriver driver;
 
     @FindBy(xpath = "//a[@class=\"gb_g\"] [@data-pid=\"23\"]")
     private WebElement mailButton;
 
-    public MainGooglePage(RemoteWebDriver driver) {
+    public MainGooglePage(WebDriver driver) {
         this.driver = driver;
         initElements(driver, this);
     }
