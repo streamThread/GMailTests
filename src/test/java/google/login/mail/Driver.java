@@ -15,7 +15,11 @@ public class Driver {
     private static WebDriver driver;
 
     private Driver() {
-        driver = createDriver();
+        try {
+            driver = createDriver();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
     }
 
     public static synchronized WebDriver getInstance() {
@@ -25,7 +29,7 @@ public class Driver {
         return driver;
     }
 
-    private WebDriver createDriver() {
+    private WebDriver createDriver() throws MalformedURLException {
         String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("hh:mm dd.MM.yyyy"));
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
@@ -33,15 +37,9 @@ public class Driver {
         capabilities.setCapability("videoName", String.format("%s_mail_page_tests", time));
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
-        try {
-            RemoteWebDriver driver = new RemoteWebDriver(URI.create("http://localhost:4444/wd/hub").toURL(), capabilities);
-            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            driver.manage().window().maximize();
-        } catch (MalformedURLException e) {
-            System.out.println("Invalid grid URL");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return driver;
+        RemoteWebDriver tmpDriver = new RemoteWebDriver(URI.create("http://localhost:4444/wd/hub").toURL(), capabilities);
+        tmpDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        tmpDriver.manage().window().maximize();
+        return tmpDriver;
     }
 }
